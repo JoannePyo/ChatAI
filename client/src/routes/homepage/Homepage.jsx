@@ -7,6 +7,7 @@ const Homepage = () => {
     // useState 훅을 사용하여 typingStatus 라는 상태 변수를 생성하고 초기값을 "human1"로 설정
     const [typingStatus, setTypingStatus] = useState("human1");
 
+
     return (
 
         <div className="homepage">

@@ -1,6 +1,11 @@
 import './rootLayout.css'
 import {Link, Outlet} from 'react-router-dom'
 import { ClerkProvider, SignedIn, UserButton } from "@clerk/clerk-react";
+//https://tanstack.com/query/latest/docs/framework/react/quick-start
+import {
+    QueryClient,
+    QueryClientProvider,
+} from '@tanstack/react-query'
 
 // clerk for login
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -9,28 +14,31 @@ if (!PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key")
 }
 
+// Create a client
+const queryClient = new QueryClient()
+
 const RootLayout = () => {
     return (
         <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-
-        <div className="rootLayout">
-            <header>
-                {/* 로고와 애플리케이션 이름을 클릭할 수 있도록 링크로 설정 */}
-                <Link to="/" className="logo">
-                    <img src="/logo.png" alt="logo"/>
-                    <span>Chat AI</span>
-                </Link>
-                <div className="user">
-                    <SignedIn>
-                        <UserButton />
-                    </SignedIn>
+            {/* Provide the client to your App */}
+            <QueryClientProvider client={queryClient}>
+                <div className="rootLayout">
+                    <header>
+                        <Link to="/" className="logo">
+                            <img src="/logo.png" alt="" />
+                            <span>CHAT AI</span>
+                        </Link>
+                        <div className="user">
+                            <SignedIn>
+                                <UserButton />
+                            </SignedIn>
+                        </div>
+                    </header>
+                    <main>
+                        <Outlet />
+                    </main>
                 </div>
-            </header>
-            <main>
-                {/* main,jsx children parts ( 자식 라우트의 내용을 렌더링하는 Outlet) */}
-                <Outlet/>
-            </main>
-        </div>
+            </QueryClientProvider>
         </ClerkProvider>
     );
 };

@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a7bd2c2-e8d5-4f8d-b4aa-5b914f975e83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/models/chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/userChats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
     </list>
@@ -67,10 +66,26 @@
       <workItem from="1725056625789" duration="350000" />
       <workItem from="1725057170596" duration="617000" />
       <workItem from="1725060991120" duration="3492000" />
+      <workItem from="1725065849516" duration="227000" />
+      <workItem from="1725370041349" duration="7573000" />
+      <workItem from="1725378163494" duration="3954000" />
+      <workItem from="1725388005887" duration="3210000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/routes/dashboardPage/DashboardPage.jsx</url>
+          <line>12</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
