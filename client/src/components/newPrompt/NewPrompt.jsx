@@ -18,21 +18,17 @@ const NewPrompt = ({data}) => {
         aiData: {},
     });
 
-    const chat = model.startChat({
-        history: [
-            {
-                role:"user",
-                parts: [{text: "Hello, I have 2 dogs"}],
-            },
-            {
-                role:"model",
-                parts: [{text:"Great to meet you."}],
-            },
-        ],
+    // 채팅 생성
+    const chatHistory = data?.history || [];
+    const chat = chatHistory.length > 0 && chatHistory[0]?.role === 'user' ? model.startChat({
+        history: chatHistory.map(({ role, parts }) => ({
+            role,
+            parts: [{ text: parts[0]?.text || '' }],
+        })),
         generationConfig: {
-            //maxOutputTokens: 100,
+            // maxOutputTokens: 100,
         },
-    });
+    }) : null;
 
 
     // 자동으로 스크롤 내려가서 마지막 글 보이게 하기

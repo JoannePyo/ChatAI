@@ -7,7 +7,6 @@
     <list default="true" id="5a7bd2c2-e8d5-4f8d-b4aa-5b914f975e83" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
     </list>
@@ -69,7 +68,12 @@
       <workItem from="1725065849516" duration="227000" />
       <workItem from="1725370041349" duration="7573000" />
       <workItem from="1725378163494" duration="3954000" />
-      <workItem from="1725388005887" duration="3210000" />
+      <workItem from="1725388005887" duration="3665000" />
+      <workItem from="1725393049959" duration="1509000" />
+      <workItem from="1725394879757" duration="776000" />
+      <workItem from="1725395720357" duration="26000" />
+      <workItem from="1725395760870" duration="319000" />
+      <workItem from="1725396763702" duration="1922000" />
     </task>
     <servers />
   </component>
@@ -82,7 +86,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/routes/dashboardPage/DashboardPage.jsx</url>
           <line>12</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

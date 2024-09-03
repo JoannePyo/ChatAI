@@ -6,11 +6,16 @@ import mongoose from "mongoose";
 import Chat from "./models/chat.js";
 import UserChats from "./models/userChats.js";
 import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node'
+import path from "path";
+import url, { fileURLToPath } from "url";
 
 dotenv.config(); // .env 파일의 환경 변수 로드
 
 const port = process.env.PORT || 3000; // 환경 변수 PORT 설정되어 있지 않으면 3000 사용
 const app = express(); // Express 애플리케이션 인스턴스 생성
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(
     cors({
@@ -106,14 +111,19 @@ app.get("/api/userchats", ClerkExpressRequireAuth(), async (req, res) => {
     const userId = req.auth.userId;
 
     try {
-        const userChats = await UserChats.find({ userId });
+        const userChats = await UserChats.findOne({ userId }); // findOne을 사용하여 특정 사용자만 가져오기
+        if (!userChats) {
+            // 유저가 없을 경우 빈 배열을 반환
+            return res.status(200).send([]);
+        }
 
-        res.status(200).send(userChats[0].chats);
+        res.status(200).send(userChats.chats); // 유저가 존재할 경우 채팅 목록 반환
     } catch (err) {
         console.log(err);
         res.status(500).send("Error fetching userchats!");
     }
 });
+
 
 app.get("/api/chats/:id", ClerkExpressRequireAuth(), async (req, res) => {
     const userId = req.auth.userId;
@@ -164,6 +174,12 @@ app.use((err, req, res, next) => {
     res.status(401).send("Unauthenticated!");
 });
 
+// PRODUCTION
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
+});
 
 // 지정된 포트에서 서버 시작
 app.listen(port, () => {
